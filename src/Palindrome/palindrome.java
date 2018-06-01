@@ -1,4 +1,4 @@
-// Marce-Pierre Douglas Samuels
+// Marcel-Pierre Douglas Samuels
 package Palindrome;
 import java.io.*;
 import java.lang.*;
@@ -49,28 +49,50 @@ public class palindrome {
 	
 	public static Boolean checker(String val) {
 		String pal = val.toLowerCase();
+		String newpal= "";
 		char arr[] = pal.toCharArray();
 		int length = pal.length();
+		//check and remove white spaces
+		for (int i =0; i< length; i++) {
+			if (arr[i] == ' ') {
+				
+			}
+			// convert char to string and concatenate
+			else {
+				String s = String.valueOf(arr[i]);
+				newpal += s;
+				
+			}
+		}
+		//output new string
+		System.out.println(newpal);
+		//place string into Char array
+		char newarr[] = newpal.toCharArray();
+		// get length of new array
+		int newlength = newpal.length();
+		
+		//compare characters
 		int check = 0;
 		
-		if (pal.length()%2 == 0){
-			for (int i =0; i< length/2; i++) {
-				if (arr[i] == arr[length-1-i]) {
+		if (newpal.length()%2 == 0){
+			for (int i =0; i< newlength/2; i++) {
+				if (newarr[i] == newarr[newlength-1-i]) {
 					check++;
 				}
 				
 			}
 		}
 		else {
-			for (int i =0; i< (length-1)/2; i++) {
-				if (arr[i] == arr[length-1-i]) {
+			for (int i =0; i< (newlength-1)/2; i++) {
+				if (newarr[i] == newarr[newlength-1-i]) {
 					check++;
 				}
 			}
 			
 		}
 		
-		if (check == length/2) return true;
+		// return true if the number of same characters are equal to that of half the # of chars in string
+		if (check == newlength/2) return true;
 		
 		return false;
 	}
